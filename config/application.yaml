@@ -1,0 +1,17 @@
+app:
+  name: "Single-Cell Platform"
+  version: "1.0.0"
+  
+database:
+  host: "localhost"
+  port: 5432
+  name: "single_cell_db"
+  
+spark:
+  master: "spark://spark-master:7077"
+  executor_memory: "2g"
+  
+data:
+  input_dir: "/data/raw"
+  processed_dir: "/data/processed"
+  results_dir: "/data/results"

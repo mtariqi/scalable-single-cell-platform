@@ -1,0 +1,17 @@
+#!/usr/bin/env json
+# Create NiFi flow configuration
+{
+  "description": "Single-Cell RNA-seq Analysis Pipeline",
+  "processors": [
+    {
+      "name": "Monitor_Sequencer_Output",
+      "type": "org.apache.nifi.processors.standard.ListFile",
+      "properties": {
+        "Input Directory": "/data/raw",
+        "File Filter": "*.fastq.gz,*.h5ad"
+      }
+    }
+  ]
+}
+
+

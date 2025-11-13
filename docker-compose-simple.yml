@@ -1,0 +1,13 @@
+# Create a minimal docker-compose for just the webapp
+services:
+  webapp:
+    build: 
+      context: ./web_app
+      dockerfile: Dockerfile
+    container_name: sc_webapp_simple
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+
+
