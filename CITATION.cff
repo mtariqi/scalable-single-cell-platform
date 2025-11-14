@@ -1,23 +1,12 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it using these metadata."
-title: "Scalable Single-Cell RNA-Seq Analysis Platform"
-abstract: "A production-ready, containerized platform for distributed analysis of single-cell RNA sequencing data using Apache Spark, Streamlit, and Docker Compose."
+title: Scalable Single-Cell RNA-Seq Analysis Platform
+version: "1.0.0"
+doi: 10.5281/zenodo.17611614
+message: "If you use this software, please cite it using the metadata below."
+type: software
 authors:
-  - family-names: "Tariq"
-    given-names: "M" 
-    # Add your ORCID if you have one: orcid: "https://orcid.org/0000-0000-0000-0000"
-version: 1.0.0
-doi: 10.5281/zenodo.XXXXXX  # This will be filled by Zenodo
-date-released: 2024-11-15
-url: "https://github.com/mtariqi/scalable-single-cell-platform"
-keywords:
-  - "single-cell RNA-seq"
-  - "bioinformatics"
-  - "Apache Spark"
-  - "distributed computing"
-  - "Docker"
-  - "Streamlit"
-  - "visualization"
-license: Apache-2.0
+  - family-names: Islam
+    given-names: Md Tariqul
+date-released: 2025-11-01
 repository-code: "https://github.com/mtariqi/scalable-single-cell-platform"
-
+url: "https://doi.org/10.5281/zenodo.17611614"
