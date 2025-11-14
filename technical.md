@@ -578,56 +578,11 @@ graph TB
 
 ## 🧠 Application Areas of the Single-Cell Platform
 
-![Mind Map](docs/images/single_cell_mindmap.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mtariqi/scalable-single-cell-platform/main/docs/images/mindmap.png" width="90%">
+</p>
 
 
-
-```
-
-### Example Workflows
-
-1. **Cancer Immunotherapy Response**
-   - Analyze 100K+ tumor-infiltrating lymphocytes
-   - Identify responder vs. non-responder signatures
-   - Real-time exploration of immune cell populations
-
-2. **Developmental Biology Study**
-   - Track cell state transitions during differentiation
-   - Visualize lineage trajectories with UMAP
-   - Quality control for batch effects
-
-3. **Drug Screening Campaign**
-   - Process multiple treatment conditions in parallel
-   - Compare gene expression changes across treatments
-   - Interactive exploration of drug response signatures
-
----
-
-## 🔮 Future Directions
-
-### Planned Enhancements
-
-```mermaid
-%%{init: {'theme':'dark', 'themeVariables': {'primaryColor':'#1e3a8a','primaryTextColor':'#fff','primaryBorderColor':'#3b82f6','lineColor':'#60a5fa','secondaryColor':'#7c3aed','tertiaryColor':'#059669'}}}%%
-timeline
-    title Platform Development Roadmap
-    section Phase 1 (Current)
-        Spark cluster setup : Core functionality
-        Streamlit dashboard : UMAP visualization
-        Docker deployment : One-command setup
-    section Phase 2 (Q1 2026)
-        GPU acceleration : RAPIDS integration
-        Trajectory inference : Pseudotime analysis
-        Batch correction : Harmony/Seurat integration
-    section Phase 3 (Q2 2026)
-        Multi-omics : CITE-seq support
-        Spatial transcriptomics : Spatial coordinates
-        Machine learning : Cell type prediction
-    section Phase 4 (Q3 2026)
-        Cloud deployment : AWS/GCP/Azure
-        API development : RESTful endpoints
-        Multi-user support : Authentication system
-```
 
 ### Technical Roadmap
 
