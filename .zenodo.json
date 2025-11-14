@@ -15,7 +15,7 @@
     "bioinformatics-platform",
     "genomics"
   ],
-  "license": "MIT",
+  "license": "Apache-2.0",
   "creators": [
     {
       "name": "Tariq, M.",
