@@ -51,6 +51,9 @@ The **Scalable Single-Cell RNA-Seq Analysis Platform** is a production-grade, co
 This platform enables **end-to-end single-cell analysis**, from raw gene-count matrices to interactive biological exploration.
 
 ---
+![Mind Map](https://raw.githubusercontent.com/mtariqi/scalable-single-cell-platform/main/docs/images/singlecell_mindmap.png)
+
+
 
 # 🧬 High-Level Diagram
 
