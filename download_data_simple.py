@@ -7,8 +7,8 @@ print("🔬 Creating Realistic Single-Cell Data")
 print("=====================================")
 
 # Create data directories
-os.makedirs("/app/data/raw", exist_ok=True)
-os.makedirs("/app/data/processed", exist_ok=True)
+os.makedirs("data/raw", exist_ok=True)
+os.makedirs("data/processed", exist_ok=True)
 
 # Create realistic single-cell data
 n_cells = 8000
@@ -79,8 +79,8 @@ obs['umap_2'] = umap_coords[:, 1]
 
 # Save as CSV files (simpler than H5AD for this demo)
 print("Saving data files...")
-obs.to_csv("/app/data/raw/cell_metadata.csv", index=False)
-var.to_csv("/app/data/raw/gene_metadata.csv", index=False)
+obs.to_csv("data/raw/cell_metadata.csv", index=False)
+var.to_csv("data/raw/gene_metadata.csv", index=False)
 
 # Save a sample of expression data (first 1000 cells for demo)
 expr_sample = pd.DataFrame(
@@ -88,14 +88,14 @@ expr_sample = pd.DataFrame(
     index=obs['cell_id'][:1000],
     columns=var['gene_id']
 )
-expr_sample.to_csv("/app/data/raw/expression_sample.csv")
+expr_sample.to_csv("data/raw/expression_sample.csv")
 
 print(f"✅ Created realistic single-cell data: {n_cells} cells, {n_genes} genes")
 print(f"   Cell types: {', '.join(cell_types)}")
 print(f"   Samples: {obs['sample_id'].unique().tolist()}")
 print("   Files saved:")
-print("     - /app/data/raw/cell_metadata.csv")
-print("     - /app/data/raw/gene_metadata.csv") 
-print("     - /app/data/raw/expression_sample.csv")
+print("     - data/raw/cell_metadata.csv")
+print("     - data/raw/gene_metadata.csv") 
+print("     - data/raw/expression_sample.csv")
 print("")
 print("📊 Data ready for processing with Apache Spark!")

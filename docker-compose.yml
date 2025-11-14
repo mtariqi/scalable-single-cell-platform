@@ -1,9 +1,7 @@
-version: '3.8'
-
 services:
   # Streamlit Web Application
   webapp:
-    build: 
+    build:
       context: ./web_app
       dockerfile: Dockerfile
     container_name: sc_webapp
@@ -22,7 +20,7 @@ services:
     container_name: sc_spark_master
     ports:
       - "7077:7077"
-      - "8080:8080"
+      - "8081:8080"  # Changed external port to 8081
     command: >
       /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
       --host spark-master
@@ -44,7 +42,7 @@ services:
     command: >
       /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker
       spark://spark-master:7077
-      --webui-port 8081
+      --webui-port 8082
     environment:
       - SPARK_LOCAL_IP=spark-worker
       - SPARK_WORKER_CORES=2
@@ -56,12 +54,11 @@ services:
       - sc_network
 
   # Apache NiFi for workflow orchestration
-   nifi:
+  nifi:
     image: apache/nifi:1.23.0
     container_name: sc_nifi
     ports:
-      - "8443:8443"
-      - "8080:8080"
+      - "8080:8080"  # NiFi keeps port 8080
     environment:
       - NIFI_WEB_HTTP_PORT=8080
       - NIFI_WEB_HTTP_HOST=0.0.0.0
@@ -69,3 +66,8 @@ services:
       - ./data:/data
     networks:
       - sc_network
+
+networks:
+  sc_network:
+    driver: bridge
+
