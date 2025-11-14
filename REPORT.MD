@@ -785,7 +785,7 @@ graph TB
 
 ### Research Applications
 
-![Single-Cell Platform Mindmap](docs/images/sc_mindmap.png)
+![Single-Cell Platform Mindmap](docs/images/singlecell_mindmap.png)
 
 
 
