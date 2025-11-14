@@ -52,6 +52,14 @@ This platform addresses these challenges through:
 - **Real-time quality metrics** and UMAP projections
 
 ---
+### Live Platform Demonstration
+
+**Figure 1: Deployed Single-Cell Analysis Platform**
+
+![Platform Screenshot](docs/images/platform-screenshot.png)
+
+*Live Streamlit web application showing UMAP visualization of 5,000 cells across 8 cell types (CD4+ T-cell, CD8+ T-cell, B-cell, NK-cell, Monocyte, Dendritic, Stem Cell, Macrophage). The platform displays real-time interactive controls, quality metrics, and cluster visualization powered by Apache Spark distributed computing.*
+
 
 ## ✨ Key Features
 
