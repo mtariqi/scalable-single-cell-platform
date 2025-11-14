@@ -1,0 +1,27 @@
+{
+  "title": "Scalable Single-Cell RNA-Seq Analysis Platform",
+  "upload_type": "software",
+  "description": "A production-ready, containerized platform for distributed analysis of single-cell RNA sequencing data using Apache Spark for high-performance computing and Streamlit for interactive visualization. The platform enables researchers to process and visualize thousands of single cells across multiple cell types with real-time quality metrics, clustering, differential expression, and UMAP projections.",
+  "creators": [
+    {
+      "name": "Islam, MD Tariqul",
+      "affiliation": "Independent Researcher",
+      "orcid": "0009-0009-6545-8040"
+    }
+  ],
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "keywords": [
+    "single-cell RNA-seq",
+    "bioinformatics",
+    "Apache Spark",
+    "distributed computing",
+    "Docker",
+    "Streamlit",
+    "genomics",
+    "pipelines"
+  ],
+  "access_right": "open",
+  "language": "eng",
+  "publication_date": "2025-11-13"
+}
