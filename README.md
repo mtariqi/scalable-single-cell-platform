@@ -1,9 +1,3 @@
----
-
-# 📌 *Start of README.md*
-
----
-
 # <p align="center">⚡ Scalable Single-Cell RNA-Seq Analysis Platform</p>
 
 <p align="center">
