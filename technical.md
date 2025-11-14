@@ -602,7 +602,10 @@ graph TB
 ## 🎯 Use Cases & Applications
 
 ### Research Applications
-![Mind Map](https://raw.githubusercontent.com/<username>/<repo>/main/<path>/<image>.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/<username>/<repo>/main/docs/images/single_cell_mindmap.png" width="90%">
+</p>
+
 
 
 ```
