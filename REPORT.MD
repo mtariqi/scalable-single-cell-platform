@@ -784,8 +784,11 @@ graph TB
 ## 🎯 Use Cases & Applications
 
 ### Research Applications
+<p align="center">
+  <img src="docs/images/singlecell_mindmap.png" width="85%">
+</p>
 
-![Single-Cell Platform Mindmap](docs/images/singlecell_mindmap.png)
+
 
 
 
