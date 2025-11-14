@@ -602,10 +602,10 @@ graph TB
 ## 🎯 Use Cases & Applications
 
 ### Research Applications
-<p align="center">
-  <img src="https://raw.githubusercontent.com/<username>/<repo>/main/docs/images/single_cell_mindmap.png" width="90%">
-</p>
 
+## 🧠 Application Areas of the Single-Cell Platform
+
+![Mind Map](docs/images/single_cell_mindmap.png)
 
 
 ```
