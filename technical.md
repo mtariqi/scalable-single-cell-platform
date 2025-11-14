@@ -28,35 +28,10 @@ This report presents a **production-ready, containerized platform** for distribu
 ## 🎯 Research Problem & Motivation
 
 ### The Single-Cell RNA-Seq Challenge
+![Mind Map](https://raw.githubusercontent.com/mtariqi/scalable-single-cell-platform/main/docs/images/mindmap.png)
 
-```mermaid
-%%{init: {'theme':'dark', 'themeVariables': {'primaryColor':'#1e3a8a','primaryTextColor':'#fff','primaryBorderColor':'#3b82f6','lineColor':'#60a5fa','secondaryColor':'#7c3aed','tertiaryColor':'#059669'}}}%%
-graph TB
-    subgraph Challenge["🔴 Computational Challenges"]
-        A1["High Dimensionality<br/>20,000+ genes × 1000s cells"]:::challenge
-        A2["Memory Intensive<br/>GB-TB scale datasets"]:::challenge
-        A3["Complex Analysis<br/>Multi-step workflows"]:::challenge
-        A4["Interactive Needs<br/>Real-time exploration"]:::challenge
-    end
-    
-    subgraph Solution["🟢 Our Solution"]
-        B1["Distributed Computing<br/>Apache Spark"]:::solution
-        B2["Horizontal Scaling<br/>Worker nodes"]:::solution
-        B3["Workflow Automation<br/>Apache NiFi"]:::solution
-        B4["Interactive UI<br/>Streamlit Dashboard"]:::solution
-    end
-    
-    A1 --> B1
-    A2 --> B2
-    A3 --> B3
-    A4 --> B4
-    
-    classDef challenge fill:#dc2626,stroke:#991b1b,stroke-width:3px,color:#fff
-    classDef solution fill:#16a34a,stroke:#15803d,stroke-width:3px,color:#fff
-    
-    style Challenge fill:#450a0a,stroke:#dc2626,stroke-width:2px,color:#fff
-    style Solution fill:#052e16,stroke:#16a34a,stroke-width:2px,color:#fff
-```
+
+
 
 ### Why Distributed Computing for Single-Cell Analysis?
 
