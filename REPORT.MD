@@ -785,35 +785,9 @@ graph TB
 
 ### Research Applications
 
-```mermaid
-%%{init: {'theme':'dark', 'themeVariables': {'primaryColor':'#1e3a8a','primaryTextColor':'#fff','primaryBorderColor':'#3b82f6','lineColor':'#60a5fa','secondaryColor':'#7c3aed','tertiaryColor':'#059669'}}}%%
-mindmap
-  root((Single-Cell<br/>Platform))
-    Research
-      Cancer Biology
-        Tumor heterogeneity
-        Treatment response
-      Immunology
-        T-cell dynamics
-        Immune profiling
-      Developmental Biology
-        Cell differentiation
-        Lineage tracing
-    Clinical
-      Diagnostics
-        Disease markers
-        Patient stratification
-      Drug Discovery
-        Target identification
-        Compound screening
-    Education
-      Teaching Tool
-        Bioinformatics training
-        Hands-on workshops
-      Student Projects
-        Thesis research
-        Course assignments
-```
+![Single-Cell Platform Mindmap](docs/images/sc_mindmap.png)
+
+
 
 ### Example Workflows
 
