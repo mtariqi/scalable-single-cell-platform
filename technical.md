@@ -602,70 +602,9 @@ graph TB
 ## 🎯 Use Cases & Applications
 
 ### Research Applications
+![Mind Map](https://raw.githubusercontent.com/<username>/<repo>/main/<path>/<image>.png)
 
-```mermaid
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            background-color: #d0e7ff; /* Light blue background */
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            background-color: #ecf0f1;
-            margin: 10px 0;
-            padding: 10px;
-            border-left: 5px solid #3498db;
-            border-radius: 3px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Tools</h1>
-        <ul>
-            <li>Hands-on workshops</li>
-            <li>Bioinformatics training</li>
-            <li>Compound screening</li>
-            <li>Target identification</li>
-            <li>Patient stratification</li>
-        </ul>
 
-        <h1>Thesis research</h1>
-        <ul>
-            <li>Students</li>
-            <li>Student Projects</li>
-            <li>Education</li>
-            <li>Single-Cell Platform</li>
-            <li>Clinical</li>
-            <li>Diagnostics</li>
-            <li>Disease markers</li>
-        </ul>
-
-        <h1>Course assignments</h1>
-    </div>
-</body>
-</html>
 ```
 
 ### Example Workflows
