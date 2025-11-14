@@ -1,0 +1,27 @@
+### 2.1 Create a comprehensive .zenodo.json file
+
+```json
+{
+  "title": "Scalable Single-Cell RNA-Seq Analysis Platform",
+  "description": "A production-ready, containerized platform for distributed analysis of single-cell RNA sequencing data using Apache Spark for high-performance computing and Streamlit for interactive visualization. The platform enables researchers to process and visualize thousands of single cells across multiple cell types with real-time quality metrics and UMAP projections.",
+  "keywords": [
+    "single-cell rna-seq",
+    "bioinformatics",
+    "apache spark",
+    "distributed computing",
+    "docker",
+    "streamlit",
+    "visualization",
+    "bioinformatics-platform",
+    "genomics"
+  ],
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Tariq, M.",
+      "affiliation": "Independent Researcher"
+    }
+  ],
+  "access_right": "open",
+  "upload_type": "software"
+}
