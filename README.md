@@ -685,19 +685,7 @@ Contribution Areas
 
 This project is licensed under the MIT License - see the LICENSE file for details.**
 ```
-MIT License
-
-Copyright (c) 2024 Scalable Single-Cell Analysis Platform
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+es or substantial portions of the Software.
 ```
 ## 📞 Support
 Resources
@@ -733,7 +721,13 @@ Community
    Streamlit Community: Streamlit Forum
 
  
-
+## 👤 Author
+MD Tariqul Islam (Tariq)
+GitHub: @mtariqi
+LinkedIn: https://www.linkedin.com/in/mdtariqulscired
+License: MIT
+Version: 1.0.0
+Last Updated: November 2025
 
 
 
