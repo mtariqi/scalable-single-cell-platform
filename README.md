@@ -1,6 +1,6 @@
 # Scalable Single-Cell RNA-Seq Analysis Platform
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17611614.svg)](https://doi.org/10.5281/zenodo.17611614)
 [![Apache Spark](https://img.shields.io/badge/Apache-Spark-orange.svg)](https://spark.apache.org/)
 [![Streamlit](https://img.shields.io/badge/UI-Streamlit-red.svg)](https://streamlit.io/)
 [![Docker](https://img.shields.io/badge/Container-Docker-blue.svg)](https://docker.com/)
