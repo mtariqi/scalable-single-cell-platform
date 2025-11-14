@@ -131,35 +131,36 @@ classDef in fill:#2563eb,stroke:#1e40af,color:#fff;
 
 ```mermaid
 flowchart TB
-    subgraph UI[🧪 Streamlit Web App]
-        UMAP_UI[UMAP Viewer]
-        QC_UI[QC Metrics]
-        FilterUI[Filtering + Annotation]
-    end
 
-    subgraph SPARK[⚡ Apache Spark Cluster]
-        SM[Master Node]
-        W1[Worker 1 (2 cores)]
-        W2[Worker 2 (2 cores)]
-    end
+subgraph UI["Streamlit Web App"]
+    UMAP_UI["UMAP Viewer"]
+    QC_UI["QC Metrics"]
+    FilterUI["Filtering and Annotation"]
+end
 
-    subgraph NIFI[🔁 Apache NiFi Orchestration]
-        NF1[Data Ingestion]
-        NF2[Schema Enforcement]
-        NF3[Workflow Automation]
-    end
-    
-    subgraph STORAGE[📦 Persistent Volume]
-        P1[Raw Data]
-        P2[Processed Parquet Files]
-    end
+subgraph SPARK["Apache Spark Cluster"]
+    SM["Master Node"]
+    W1["Worker 1 - 2 cores"]
+    W2["Worker 2 - 2 cores"]
+end
 
-    P1 --> NF1 --> NF2 --> SPARK
-    SPARK --> P2 --> UI
-    NF3 --> SPARK
+subgraph NIFI["Apache NiFi Orchestration"]
+    NF1["Data Ingestion"]
+    NF2["Schema Enforcement"]
+    NF3["Workflow Automation"]
+end
 
-    SM --> W1
-    SM --> W2
+subgraph STORAGE["Persistent Storage Volume"]
+    P1["Raw Data"]
+    P2["Processed Parquet Files"]
+end
+
+P1 --> NF1 --> NF2 --> SPARK
+SPARK --> P2 --> UI
+NF3 --> SPARK
+
+SM --> W1
+SM --> W2
 ```
 
 ---
