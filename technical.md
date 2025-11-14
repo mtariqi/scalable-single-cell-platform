@@ -8,11 +8,10 @@ https://claude.ai/public/artifacts/d6024a26-3cca-4b38-858a-3c1765d75adf
 **Presenter:** MD Tariqul Islam (Tariq)  
 **Date:** November 2025  
 **Version:** 1.0.0  
-**Institution:** [Your Institution]
+**Institution:** Northeastern University
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
-
-
+<p align="center">⚡ Scalable Single-Cell RNA-Seq Analysis Platform</p>
+<p align="center"> <img src="docs/images/banner.svg" width="90%"> </p> <p align="center"> <a href="https://doi.org/10.5281/zenodo.17611614"> <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.17611614.svg" /> </a> <img src="https://img.shields.io/badge/Apache-Spark-orange.svg" /> <img src="https://img.shields.io/badge/UI-Streamlit-red.svg" /> <img src="https://img.shields.io/badge/Container-Docker-blue.svg" /> <img src="https://img.shields.io/badge/Orchestration-NiFi-purple.svg" /> <img src="https://img.shields.io/badge/License-MIT-yellow.svg" /> </p>
 ---
 
 ## 📑 Executive Summary
