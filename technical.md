@@ -7,6 +7,7 @@
 **Institution:** [Your Institution]
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
@@ -784,12 +785,25 @@ graph LR
 %%{init: {'theme':'dark', 'themeVariables': {'primaryColor':'#1e3a8a','primaryTextColor':'#fff','primaryBorderColor':'#3b82f6','lineColor':'#60a5fa','secondaryColor':'#7c3aed','tertiaryColor':'#059669'}}}%%
 graph TB
     subgraph Skills["🎯 Skills Acquired"]
-        S1["Distributed Computing<br/>Apache Spark"]:::skill
-        S2["Web Development<br/>Streamlit/Python"]:::skill
-        S3["Containerization<br/>Docker/Compose"]:::skill
-        S4["Bioinformatics<br/>scRNA-seq analysis"]:::skill
+        S1["Distributed Computing<br>Apache Spark"]:::skill
+        S2["Web Development<br>Streamlit/Python"]:::skill
+        S3["Containerization<br>Docker/Compose"]:::skill
+        S4["Bioinformatics<br>scRNA-seq analysis"]:::skill
     end
     
     subgraph Applications["💼 Career Applications"]
         A1["Data Engineering"]:::app
-        A2["Bioinformatics"]
+        A2["Bioinformatics"]:::app
+        A3["DevOps Engineering"]:::app
+        A4["Research Scientist"]:::app
+    end
+    
+    S1 --> A1
+    S2 --> A2
+    S3 --> A3
+    S4 --> A2
+    S4 --> A4
+    
+    classDef skill fill:#8b5cf6,stroke:#6d28d9,stroke-width:3px,color:#fff
+    classDef app fill:#10b981,stroke:#059669,stroke-width:3px,color:#fff
+```
