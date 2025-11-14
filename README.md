@@ -737,6 +737,20 @@ License: MIT
 Version: 1.0.0
 Last Updated: November 2025
 
+## 📖 Citation
+
+If you use this platform in your research, please cite:
+
+```bibtex
+@software{tariq_scalable_single_cell_2024,
+  title = {Scalable Single-Cell RNA-Seq Analysis Platform},
+  author = {Tariq, M.},
+  year = {2024},
+  publisher = {Zenodo},
+  doi = {10.5281/zenodo.XXXXXX},
+  url = {https://doi.org/10.5281/zenodo.XXXXXX}
+}
+```
 
 
 
