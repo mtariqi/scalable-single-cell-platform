@@ -601,7 +601,9 @@ graph TB
 
 ## 🎯 Use Cases & Applications
 
-### Research Applications
+## 🧠 Application Areas of the Single-Cell Platform
+
+![Mind Map](docs/images/single_cell_mindmap.png)
 
 
 
