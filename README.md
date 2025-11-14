@@ -1,5 +1,3 @@
-# Create a comprehensive README for publication
-cat > README.md << 'EOF'
 # Scalable Single-Cell Analysis Platform
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
