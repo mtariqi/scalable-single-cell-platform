@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# Update the web app to handle real data
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -6,7 +7,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import os
-import json
+import pyarrow.parquet as pq
+import glob
 
 # Page configuration
 st.set_page_config(
@@ -19,7 +21,7 @@ st.set_page_config(
 class SingleCellDashboard:
     def __init__(self):
         self.setup_sidebar()
-        self.load_sample_data()
+        self.load_data()
         
     def setup_sidebar(self):
         """Setup the sidebar with filters and controls"""
@@ -32,25 +34,44 @@ class SingleCellDashboard:
         
         # Data controls
         st.sidebar.subheader("Data Controls")
-        self.n_cells = st.sidebar.slider("Number of cells to display", 100, 5000, 1000)
+        self.n_cells = st.sidebar.slider("Number of cells to display", 100, 10000, 2000)
         
         # Visualization controls
         st.sidebar.subheader("Visualization")
         self.color_by = st.sidebar.selectbox(
             "Color cells by",
-            ["cell_type", "n_genes", "total_counts", "mito_percent", "sample_id"]
+            ["cell_type", "n_genes", "total_counts", "mito_percent", "sample_id", "cluster"]
         )
         
-        self.selected_gene = st.sidebar.text_input("Gene expression", "Gene_0100")
+        self.selected_gene = st.sidebar.text_input("Gene expression", "CD3D")
         
-    def load_sample_data(self):
-        """Load or generate sample single-cell data"""
-        # Check if we have processed data
-        if os.path.exists("/app/data/processed/cell_metadata.parquet"):
+        # Data source info
+        st.sidebar.markdown("---")
+        st.sidebar.subheader("Data Source")
+        if hasattr(self, 'data_source'):
+            st.sidebar.info(f"📁 {self.data_source}")
+        
+    def load_data(self):
+        """Load processed single-cell data"""
+        processed_dir = "/app/data/processed"
+        
+        # Check for real processed data
+        if os.path.exists(f"{processed_dir}/cell_metadata.parquet"):
             try:
-                self.metadata_df = pd.read_parquet("/app/data/processed/cell_metadata.parquet")
-                st.sidebar.info("📁 Using processed data from Spark")
-            except:
+                # Read Parquet files
+                self.metadata_df = pd.read_parquet(f"{processed_dir}/cell_metadata.parquet")
+                
+                # Try to read expression data for the selected gene
+                self.expr_data = None
+                if os.path.exists(f"{processed_dir}/normalized_expression.parquet"):
+                    # For performance, we'll load expression on-demand
+                    pass
+                
+                self.data_source = "Processed Single-Cell Data"
+                st.sidebar.success("✅ Real data loaded")
+                
+            except Exception as e:
+                st.sidebar.warning(f"⚠️ Real data load failed: {e}")
                 self.generate_sample_data()
         else:
             self.generate_sample_data()
@@ -60,7 +81,7 @@ class SingleCellDashboard:
         np.random.seed(42)
         n_cells = 5000
         
-        # Generate UMAP-like coordinates
+        # Generate UMAP-like coordinates for different cell types
         t_cells = np.random.multivariate_normal([2, -1], [[0.5, 0.1], [0.1, 0.5]], n_cells//3)
         b_cells = np.random.multivariate_normal([-1, 1], [[0.4, 0.05], [0.05, 0.4]], n_cells//3)
         monocytes = np.random.multivariate_normal([0, 2], [[0.3, -0.1], [-0.1, 0.3]], n_cells//4)
@@ -71,32 +92,36 @@ class SingleCellDashboard:
         cell_types = (['T-Cell'] * len(t_cells) + 
                      ['B-Cell'] * len(b_cells) + 
                      ['Monocyte'] * len(monocytes) + 
-                     ['Other'] * len(other))
+                     ['NK-Cell'] * len(other))
         
         samples = np.random.choice(['Patient_01', 'Patient_02', 'Patient_03'], n_cells)
+        clusters = np.random.randint(1, 8, n_cells)
         
         self.metadata_df = pd.DataFrame({
             'cell_id': [f'Cell_{i:05d}' for i in range(n_cells)],
             'cell_type': cell_types,
             'sample_id': samples,
+            'cluster': clusters,
             'n_genes': np.random.randint(500, 3000, n_cells),
             'total_counts': np.random.randint(1000, 20000, n_cells),
             'mito_percent': np.random.uniform(0.01, 0.15, n_cells),
             'umap_1': coords[:, 0],
-            'umap_2': coords[:, 1],
-            'cluster_id': np.random.randint(1, 8, n_cells)
+            'umap_2': coords[:, 1]
         })
         
+        self.data_source = "Generated Sample Data"
         st.sidebar.info("🔧 Using generated sample data")
     
     def create_umap_plot(self):
         """Create interactive UMAP visualization"""
+        plot_data = self.metadata_df.head(self.n_cells).copy()
+        
         fig = px.scatter(
-            self.metadata_df.head(self.n_cells),
+            plot_data,
             x='umap_1',
             y='umap_2',
             color=self.color_by,
-            hover_data=['cell_id', 'cell_type', 'n_genes'],
+            hover_data=['cell_id', 'cell_type', 'n_genes', 'total_counts'],
             title=f"Single-Cell UMAP Projection (colored by {self.color_by})",
             width=800,
             height=600
@@ -120,16 +145,19 @@ class SingleCellDashboard:
         )
         
         fig.add_trace(
-            go.Pie(labels=composition.index, values=composition.values, name="Distribution"),
+            go.Pie(labels=composition.index, values=composition.values, 
+                  name="Distribution", hole=0.4),
             row=1, col=1
         )
         
         fig.add_trace(
-            go.Bar(x=composition.index, y=composition.values, name="Counts"),
+            go.Bar(x=composition.index, y=composition.values, name="Counts",
+                  marker_color=['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']),
             row=1, col=2
         )
         
-        fig.update_layout(height=400, showlegend=False, title_text="Cell Type Composition")
+        fig.update_layout(height=400, showlegend=False, 
+                         title_text="Cell Type Composition Analysis")
         return fig
     
     def create_metrics_dashboard(self):
@@ -137,7 +165,7 @@ class SingleCellDashboard:
         col1, col2, col3, col4 = st.columns(4)
         
         with col1:
-            st.metric("Total Cells", len(self.metadata_df))
+            st.metric("Total Cells", f"{len(self.metadata_df):,}")
         with col2:
             st.metric("Cell Types", self.metadata_df['cell_type'].nunique())
         with col3:
@@ -147,32 +175,78 @@ class SingleCellDashboard:
     
     def show_platform_info(self):
         """Show platform information"""
-        with st.expander("🚀 Platform Information"):
+        with st.expander("🚀 Platform Information", expanded=True):
             st.markdown("""
             **Scalable Single-Cell Analysis Platform**
             
-            This platform demonstrates a production-ready single-cell RNA-seq analysis 
-            pipeline using modern big data technologies:
+            This platform provides production-grade single-cell RNA-seq analysis 
+            using modern big data technologies:
             
-            - **Apache Spark**: Distributed data processing
-            - **Apache NiFi**: Workflow orchestration  
-            - **Streamlit**: Interactive visualization
-            - **Docker**: Containerized deployment
+            - **Apache Spark**: Distributed data processing for millions of cells
+            - **Apache NiFi**: Automated workflow orchestration  
+            - **Streamlit**: Interactive visualization and exploration
+            - **Docker**: Reproducible, containerized deployment
             
-            **Features:**
-            - Process millions of cells
+            **Supported Data Formats:**
+            - 10X Genomics (Cell Ranger output)
+            - H5AD (AnnData files)
+            - H5 (10X HDF5 format)
+            - MTX (Matrix Market format)
+            
+            **Key Features:**
+            - Process datasets from thousands to millions of cells
             - Real-time interactive exploration
-            - Automated analysis pipelines
-            - Reproducible workflows
+            - Automated quality control and normalization
+            - Reproducible analysis pipelines
             """)
+            
+            st.info("💡 **To use your own data:** Place 10X, H5AD, or H5 files in the `data/raw/` directory")
+    
+    def show_data_upload(self):
+        """Show data upload and management"""
+        with st.expander("📁 Data Management"):
+            st.markdown("""
+            ### Add Your Single-Cell Data
+            
+            Supported formats:
+            - **10X Genomics**: `matrix.mtx.gz`, `features.tsv.gz`, `barcodes.tsv.gz`
+            - **H5AD**: AnnData files (`.h5ad`)
+            - **10X H5**: `filtered_feature_bc_matrix.h5`
+            
+            **Instructions:**
+            1. Place your data files in the `data/raw/` directory
+            2. The platform will automatically detect and process them
+            3. Processed data will appear in this dashboard
+            
+            **Example structure:**
+            ```
+            data/raw/
+            ├── your_dataset.h5ad
+            ├── 10x_data/
+            │   ├── matrix.mtx.gz
+            │   ├── features.tsv.gz
+            │   └── barcodes.tsv.gz
+            ```
+            """)
+            
+            # Show current data directory contents
+            if os.path.exists("/app/data/raw"):
+                raw_files = os.listdir("/app/data/raw")
+                if raw_files:
+                    st.write("**Current raw data files:**")
+                    for file in raw_files:
+                        st.write(f"- {file}")
+                else:
+                    st.write("No raw data files found. Add your data to `data/raw/`")
     
     def run(self):
         """Main dashboard execution"""
         st.title("🔬 Scalable Single-Cell Analysis Platform")
         st.markdown("Interactive exploration of single-cell RNA-seq data at scale")
         
-        # Show platform info
+        # Show platform info and data management
         self.show_platform_info()
+        self.show_data_upload()
         
         # Metrics dashboard
         self.create_metrics_dashboard()
@@ -190,11 +264,11 @@ class SingleCellDashboard:
             col1, col2 = st.columns(2)
             with col1:
                 fig_genes = px.box(self.metadata_df, x='cell_type', y='n_genes', 
-                                 title="Genes per Cell by Type")
+                                 title="Genes Detected per Cell by Type")
                 st.plotly_chart(fig_genes, use_container_width=True)
             with col2:
                 fig_mito = px.violin(self.metadata_df, x='cell_type', y='mito_percent',
-                                   title="Mitochondrial Percentage by Type")
+                                   title="Mitochondrial Percentage by Cell Type")
                 st.plotly_chart(fig_mito, use_container_width=True)
                 
         with tab4:
@@ -202,7 +276,7 @@ class SingleCellDashboard:
             st.dataframe(self.metadata_df.head(100), use_container_width=True)
             
             # Data export
-            if st.button("📥 Export Sample Data"):
+            if st.button("📥 Export Sample Data (CSV)"):
                 csv = self.metadata_df.to_csv(index=False)
                 st.download_button(
                     label="Download CSV",
