@@ -209,8 +209,6 @@ cd scalable-single-cell-platform
 
 # 🧪 Methods
 
-*(condensed from your scientific sections — suitable for README)*
-
 ### **1. Data Ingestion**
 
 * Accepts H5AD, MTX, Parquet, Cell Ranger outputs
