@@ -28,7 +28,7 @@ This report presents a **production-ready, containerized platform** for distribu
 ## 🎯 Research Problem & Motivation
 
 ### The Single-Cell RNA-Seq Challenge
-![Mind Map](https://raw.githubusercontent.com/mtariqi/scalable-single-cell-platform/main/docs/images/mindmap.png)
+![Mind Map](https://raw.githubusercontent.com/mtariqi/scalable-single-cell-platform/main/docs/images/singlecell_mindmap.png)
 
 
 
