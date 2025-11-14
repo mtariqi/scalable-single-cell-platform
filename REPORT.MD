@@ -6,7 +6,7 @@
 **Version:** 1.0.0  
 **Institution:** [Your Institution]
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+<p align="center"> <img src="docs/images/banner.svg" width="90%"> </p> <p align="center"> <a href="https://doi.org/10.5281/zenodo.17611614"> <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.17611614.svg" /> </a> <img src="https://img.shields.io/badge/Apache-Spark-orange.svg" /> <img src="https://img.shields.io/badge/UI-Streamlit-red.svg" /> <img src="https://img.shields.io/badge/Container-Docker-blue.svg" /> <img src="https://img.shields.io/badge/Orchestration-NiFi-purple.svg" /> <img src="https://img.shields.io/badge/License-MIT-yellow.svg" /> </p>
 
 ---
 
