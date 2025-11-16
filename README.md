@@ -5,14 +5,54 @@
 </p>
 
 <p align="center">
+  <!-- DOI Badge -->
   <a href="https://doi.org/10.5281/zenodo.17611614">
-    <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.17611614.svg" />
+    <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.17611614.svg" alt="DOI">
   </a>
-  <img src="https://img.shields.io/badge/Apache-Spark-orange.svg" />
-  <img src="https://img.shields.io/badge/UI-Streamlit-red.svg" />
-  <img src="https://img.shields.io/badge/Container-Docker-blue.svg" />
-  <img src="https://img.shields.io/badge/Orchestration-NiFi-purple.svg" />
-  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  <!-- Version Badge -->
+  <img src="https://img.shields.io/badge/version-1.0.0-brightgreen?style=flat-square" alt="Version">
+  <!-- License Badge -->
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square" alt="License">
+  <!-- Platform Badge -->
+  <img src="https://img.shields.io/badge/Platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey?style=flat-square" alt="Platform">
+</p>
+
+<p align="center">
+  <!-- Technology Badges - First Row -->
+  <img src="https://img.shields.io/badge/Apache-Spark%203.5.0-E25A1C?style=for-the-badge&logo=apachespark&logoColor=white" alt="Spark">
+  <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit">
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+  <img src="https://img.shields.io/badge/Apache%20NiFi-017CEE?style=for-the-badge&logo=apache&logoColor=white" alt="NiFi">
+  <img src="https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+</p>
+
+<p align="center">
+  <!-- Analysis & Features Badges - Second Row -->
+  <img src="https://img.shields.io/badge/Analysis-Single--Cell%20RNA--Seq-9cf?style=flat-square" alt="Analysis Type">
+  <img src="https://img.shields.io/badge/Scale-50K--1M+%20cells-success?style=flat-square" alt="Scale">
+  <img src="https://img.shields.io/badge/Processing-Distributed-orange?style=flat-square" alt="Processing">
+  <img src="https://img.shields.io/badge/Visualization-Interactive-blueviolet?style=flat-square" alt="Visualization">
+  <img src="https://img.shields.io/badge/Clustering-Leiden-informational?style=flat-square" alt="Clustering">
+  <img src="https://img.shields.io/badge/Embedding-UMAP-red?style=flat-square" alt="UMAP">
+</p>
+
+<p align="center">
+  <!-- Status & Metrics Badges - Third Row -->
+  <img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen?style=flat-square" alt="Status">
+  <img src="https://img.shields.io/badge/Deployment-Containerized-blue?style=flat-square" alt="Deployment">
+  <img src="https://img.shields.io/badge/Reproducibility-High-success?style=flat-square" alt="Reproducibility">
+  <img src="https://img.shields.io/badge/RAM-8GB%20min%20%7C%2016GB%20rec-yellow?style=flat-square" alt="RAM">
+  <img src="https://img.shields.io/badge/CPU-Multi--core-orange?style=flat-square" alt="CPU">
+</p>
+
+<p align="center">
+  <!-- Data Format Badges - Fourth Row -->
+  <img src="https://img.shields.io/badge/Format-H5AD-lightblue?style=flat-square&logo=files" alt="H5AD">
+  <img src="https://img.shields.io/badge/Format-MTX-lightblue?style=flat-square&logo=files" alt="MTX">
+  <img src="https://img.shields.io/badge/Format-Parquet-lightblue?style=flat-square&logo=apacheparquet" alt="Parquet">
+  <img src="https://img.shields.io/badge/Format-Cell%20Ranger-lightblue?style=flat-square" alt="Cell Ranger">
+  <img src="https://img.shields.io/badge/QC-Automated-green?style=flat-square" alt="QC">
+  <img src="https://img.shields.io/badge/Workflow-Orchestrated-purple?style=flat-square" alt="Workflow">
 </p>
 
 ---
@@ -400,4 +440,3 @@ Islam, M. T. (2025). *Scalable Single-Cell RNA-Seq Analysis Platform (1.0.0)* [C
 This project is released under the **MIT License**.
 
 ---
-
